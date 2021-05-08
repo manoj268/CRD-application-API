@@ -1,0 +1,71 @@
+﻿@model WebApplication4.Models.Data
+
+@{
+    ViewData["Title"] = "Privacy";
+}
+
+<h1>Privacy</h1>
+
+<h4>Data</h4>
+<hr />
+@{
+    bool flag = false;
+    if (!flag)
+    {
+        flag = true;
+        <div class="row">
+            <div class="col-md-4">
+                <form asp-action="Create">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="id" class="control-label"></label>
+                        <input asp-for="id" class="form-control" />
+                        <span asp-validation-for="id" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="petId" class="control-label"></label>
+                        <input asp-for="petId" class="form-control" />
+                        <span asp-validation-for="petId" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="quantity" class="control-label"></label>
+                        <input asp-for="quantity" class="form-control" />
+                        <span asp-validation-for="quantity" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="shipDate" class="control-label"></label>
+                        <input asp-for="shipDate" class="form-control" />
+                        <span asp-validation-for="shipDate" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="status" class="control-label"></label>
+                        <input asp-for="status" class="form-control" />
+                        <span asp-validation-for="status" class="text-danger"></span>
+                    </div>
+                    <div class="form-group form-check">
+                        <label class="form-check-label">
+                            <input class="form-check-input" asp-for="complete" /> @Html.DisplayNameFor(model => model.complete)
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Create" class="btn btn-primary" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    }
+}
+@{
+    if (ViewBag.p)
+    {
+        <h2 class="text-success">@ViewBag.data</h2>
+    }
+}
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

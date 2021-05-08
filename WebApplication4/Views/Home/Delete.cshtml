@@ -1,0 +1,35 @@
+﻿@model WebApplication4.Models.Input
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete</h1>
+
+<h4>Input</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Delete">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Pro" class="control-label"></label>
+                <input asp-for="Pro" class="form-control" />
+                <span asp-validation-for="Pro" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+@{ 
+    if(ViewBag.f)
+            {
+                <h2 class="text-danger">successfully deleted</h2>
+            }
+}
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
